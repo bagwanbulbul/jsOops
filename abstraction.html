@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>abstract class</title>
+        <body>
+            <script>type = "text/javascript"
+                function employee(){
+                    this.empName = "empName"
+                };
+                // method of abstract class
+                employee.prototype.display=function(){
+                    return "Employee name is: "+this.empName;
+                }
+                // created a subclass
+                function manager(fullName){
+                    this.empName = fullName;
+                };
+                // created an object of subclass
+                manager.prototype=Object.create(employee.prototype);
+                var mang = new manager("Bulbul Bagwan");
+                document.write(mang.display());
+            </script>
+        </body>
+    </head>
+</html>

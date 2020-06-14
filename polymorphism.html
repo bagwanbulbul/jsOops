@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>polymorphism</title>
+        <body>
+            <script>type = "text/javascript"
+                // class A{
+                //     display()
+                //     {
+                //         document.write("class A")
+                //     }
+                // }
+                // class B extends A{
+
+                // }
+                // var b=new B();
+                // b.display();
+                function person(name, age){
+                    this.name = name;
+                    this.age = age;
+                    this.getInfo = function(){
+                        return "I am "+this.name;
+                    }
+                }
+                function employee(name,age,salary){
+                    this.salary = salary;
+                    this.name = name;
+                    this.age = age;
+                    this.getInfo = function(){
+                        return "I am "+this.name+
+                        " and "+this.age +" years old"+
+                        " and earns "+this.salary;
+                    } 
+                }
+                employee.prototype = new person();
+                employee.prototype.constructor = employee;
+
+                function details(obj){
+                    document.write(obj.getInfo()+ "<br>");
+                }
+                var person = new person("bulbul",19)
+                var employee = new employee("bulbul",19,20000)
+                details(person);
+                details(employee)
+            </script>
+        </body>
+    </head>
+</html>
